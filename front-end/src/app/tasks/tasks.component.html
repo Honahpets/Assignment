@@ -1,0 +1,21 @@
+<div class="tasks">
+
+    <div>
+        <h1>Tasks for {{listName}}</h1>
+        <button mat-button (click)="createTask()">Create Task</button>
+    </div>
+    
+    <div>
+        <mat-list>
+            <mat-list-item *ngFor="let task of tasks">
+                <button mat-button [disabled]="task.completed" (click)="completeTask(task)">Complete Task</button>
+                <button mat-button (click)="deleteTask(task)">Delete This Task</button>
+                <h3 matLine [ngClass]="{'completed': task.completed}" (click)="editTask(task)">Task: {{task.description}}</h3>
+                <div matLine>Due Date: {{task.dueDate | date}}</div>
+                <div matLine>Priority: {{task.priority}}</div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <div></div>
+</div> 
